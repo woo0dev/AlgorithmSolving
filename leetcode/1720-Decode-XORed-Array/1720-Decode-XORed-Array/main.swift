@@ -1,24 +1,11 @@
 func decode(_ encoded: [Int], _ first: Int) -> [Int] {
-    var result: [Int] = Array()
-    var temp = first
+    var result: [Int] = Array(repeating: 0, count: encoded.count+1)
+    var num = first
+    result[0] = num
     for i in 0..<encoded.count {
-        if i == 0 {
-            result.append(temp)
-            if encoded[i] > temp {
-                result.append(encoded[i]-temp)
-            } else {
-                result.append(temp-encoded[i])
-            }
-        } else {
-            if encoded[i] > result.last! {
-                result.append(encoded[i]-result.last!)
-            } else {
-                result.append(result.last!-encoded[i])
-            }
-            temp = encoded[i]
-        }
+        result[i+1] = encoded[i]^result[i]
+        
     }
     return result
 }
-
-print(decode([6], 1))
+print(decode([1,2,3], 1))
