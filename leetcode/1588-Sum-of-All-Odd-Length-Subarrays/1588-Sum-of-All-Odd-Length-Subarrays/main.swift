@@ -6,7 +6,6 @@ func sumOddLengthSubarrays(_ arr: [Int]) -> Int {
         while i+temp < arr.count {
             for j in i..<i+temp+1 {
                 result += arr[j]
-                print(result)
             }
             temp += 2
         }
