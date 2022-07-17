@@ -9,9 +9,23 @@ import Foundation
 
 func countConsistentStrings(_ allowed: String, _ words: [String]) -> Int {
 	var result = 0
+	var isEquals = false
 	let charArr = allowed.map { return $0 }
-	let arr = 
 	
+	for word in words {
+		var temp = word
+		for char in charArr {
+			temp = temp.filter { $0 != char }
+			if temp == "" {
+				isEquals = true
+			} else {
+				isEquals = false
+			}
+		}
+		if isEquals {
+			result += 1
+		}
+	}
 	
 	return result
 }
