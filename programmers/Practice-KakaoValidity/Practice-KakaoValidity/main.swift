@@ -44,24 +44,4 @@ func solution(_ today:String, _ terms:[String], _ privacies:[String]) -> [Int] {
 	return result
 }
 
-//print(solution("2022.05.19", ["A 6", "B 12", "C 3"], ["2021.05.02 A", "2021.07.01 B", "2022.02.19 C", "2022.02.20 C"]))
-
-
-func solution1(_ k:Int, _ score:[Int]) -> [Int] {
-	var rank = [Int]()
-	var result = [Int]()
-	
-	for i in score {
-		rank.append(i)
-		rank = rank.sorted(by: <)
-		
-		if rank.count < k {
-			result.append(rank[0])
-		} else {
-			result.append(rank[rank.count-k])
-		}
-	}
-	return result
-}
-
-print(solution1(3, [10, 100, 20, 150, 1, 100, 200]))
+print(solution("2022.05.19", ["A 6", "B 12", "C 3"], ["2021.05.02 A", "2021.07.01 B", "2022.02.19 C", "2022.02.20 C"]))
